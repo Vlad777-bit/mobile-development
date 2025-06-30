@@ -1,14 +1,26 @@
 import './ExploreContainer.css';
 
-interface ContainerProps { }
+type ContainerProps = object;
 
 const ExploreContainer: React.FC<ContainerProps> = () => {
-  return (
-    <div id="container">
-      <strong>Ready to create an app?</strong>
-      <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-    </div>
-  );
+	return (
+		<div id="container">
+			<strong>Ready to create an app?</strong>
+			<p>
+				Start with Ionic{' '}
+				<a
+					target="_blank"
+					rel="noopener noreferrer"
+					href="https://ionicframework.com/docs/components"
+				>
+					UI Components
+				</a>
+			</p>
+			<p>
+				<a href="/about">About this Todo App</a>
+			</p>
+		</div>
+	);
 };
 
 export default ExploreContainer;
