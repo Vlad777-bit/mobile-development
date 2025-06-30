@@ -1,0 +1,7 @@
+{
+  "name": "mobile-development",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
