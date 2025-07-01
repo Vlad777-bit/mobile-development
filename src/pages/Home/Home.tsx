@@ -9,23 +9,29 @@ import {
 	IonSpinner,
 	IonInput,
 	IonItem,
+	IonSearchbar,
 	IonSelect,
 	IonSelectOption,
 } from '@ionic/react';
 import Header from '@/components/Header';
 import ItemCard from '@/components/ItemCard';
 import { fetchTodos, createTodo, Todo } from '@/services/api';
+import './Home.css';
+
+type Filter = 'all' | 'active' | 'completed';
+type Sort = 'asc' | 'desc';
 
 const pageSize = 10;
 
 const Home: React.FC = () => {
 	const [todos, setTodos] = useState<Todo[]>([]);
-	const [filter, setFilter] = useState<'all' | 'active' | 'completed'>('all');
-	const [sort, setSort] = useState<'asc' | 'desc'>('asc');
+	const [filter, setFilter] = useState<Filter>('all');
+	const [sort, setSort] = useState<Sort>('asc');
 	const [page, setPage] = useState(1);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
 	const [newTitle, setNewTitle] = useState('');
+	const [search, setSearch] = useState('');
 
 	useEffect(() => {
 		const load = async () => {
@@ -61,8 +67,10 @@ const Home: React.FC = () => {
 	};
 
 	const filtered = todos.filter((t) => {
-		if (filter === 'completed') return t.completed;
-		if (filter === 'active') return !t.completed;
+		if (filter === 'completed' && !t.completed) return false;
+		if (filter === 'active' && t.completed) return false;
+		if (search && !t.title.toLowerCase().includes(search.toLowerCase()))
+			return false;
 		return true;
 	});
 
@@ -93,15 +101,20 @@ const Home: React.FC = () => {
 							<IonButton onClick={handleAdd}>Добавить</IonButton>
 						</IonItem>
 
+						<IonSearchbar
+							value={search}
+							placeholder="Поиск"
+							onIonInput={(e) => {
+								setSearch(e.detail.value!);
+								setPage(1);
+							}}
+							className="custom-searchbar"
+						/>
+
 						<IonSegment
 							value={filter}
 							onIonChange={(e) => {
-								setFilter(
-									e.detail.value as
-										| 'all'
-										| 'active'
-										| 'completed'
-								);
+								setFilter(e.detail.value as Filter);
 								setPage(1);
 							}}
 						>

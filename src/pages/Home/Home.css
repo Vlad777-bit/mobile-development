@@ -1,0 +1,15 @@
+ion-searchbar {
+	--background: #222;
+	--color: #fff;
+	--placeholder-color: rgba(255, 255, 255, 0.5);
+	--icon-color: #fff;
+	--border-radius: 8px;
+}
+
+ion-searchbar.custom-searchbar {
+	--background: #333;
+	--color: #eee;
+	--placeholder-color: rgba(238, 238, 238, 0.4);
+	--icon-color: #0cd1e8;
+    padding: 10px 0;
+}
