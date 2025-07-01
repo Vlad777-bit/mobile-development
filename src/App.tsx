@@ -10,7 +10,7 @@ import {
 	setupIonicReact,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { informationCircle, home as homeIcon, list } from 'ionicons/icons';
+import { informationCircle, home as homeIcon } from 'ionicons/icons';
 
 import Home from './pages/Home';
 import About from './pages/About';
