@@ -14,7 +14,6 @@ import { informationCircle, home as homeIcon } from 'ionicons/icons';
 
 import Home from './pages/Home';
 import About from './pages/About';
-import Detail from './pages/Detail';
 
 setupIonicReact();
 
@@ -36,9 +35,6 @@ const App: React.FC = () => (
 					</Route>
 					<Route exact path="/about">
 						<About />
-					</Route>
-					<Route exact path="/detail/:id">
-						<Detail />
 					</Route>
 					<Route exact path="/">
 						<Redirect to="/home" />
