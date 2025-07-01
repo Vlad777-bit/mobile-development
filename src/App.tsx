@@ -12,9 +12,9 @@ import {
 import { IonReactRouter } from '@ionic/react-router';
 import { informationCircle, home as homeIcon, list } from 'ionicons/icons';
 
-import Home from './pages/Home/Home';
-import About from './pages/About/About';
-import Todos from './pages/Todos';
+import Home from './pages/Home';
+import About from './pages/About';
+import Detail from './pages/Detail';
 
 setupIonicReact();
 
@@ -37,8 +37,8 @@ const App: React.FC = () => (
 					<Route exact path="/about">
 						<About />
 					</Route>
-					<Route exact path="/todos">
-						<Todos />
+					<Route exact path="/detail/:id">
+						<Detail />
 					</Route>
 					<Route exact path="/">
 						<Redirect to="/home" />
@@ -48,10 +48,6 @@ const App: React.FC = () => (
 					<IonTabButton tab="home" href="/home">
 						<IonIcon icon={homeIcon} />
 						<IonLabel>Главная</IonLabel>
-					</IonTabButton>
-					<IonTabButton tab="todos" href="/todos">
-						<IonIcon icon={list} />
-						<IonLabel>Задачи</IonLabel>
 					</IonTabButton>
 					<IonTabButton tab="about" href="/about">
 						<IonIcon icon={informationCircle} />

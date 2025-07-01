@@ -1,24 +1,15 @@
-import {
-	IonContent,
-	IonHeader,
-	IonPage,
-	IonTitle,
-	IonToolbar,
-} from '@ionic/react';
+import { IonContent, IonPage } from '@ionic/react';
+import Header from '@/components/Header';
 
 const About: React.FC = () => (
 	<IonPage>
-		<IonHeader>
-			<IonToolbar>
-				<IonTitle>О приложении</IonTitle>
-			</IonToolbar>
-		</IonHeader>
+		<Header title="О приложении" />
 		<IonContent className="ion-padding">
 			<h2>О нашем TODO приложении</h2>
 			<p>
-				Это приложение помогает вести список задач. Вы можете добавлять
-				новые дела, отмечать их выполнение и эффективно планировать свой
-				день.
+				Это приложение демонстрирует работу с JSONPlaceholder. Вы можете
+				просматривать список задач, отмечать их выполнение и создавать
+				новые.
 			</p>
 		</IonContent>
 	</IonPage>

@@ -1,0 +1,22 @@
+.item-card {
+	width: 100%;
+}
+
+.item-card.completed {
+	opacity: 0.7;
+}
+
+.item-row {
+	display: flex;
+	align-items: center;
+	padding: 8px;
+}
+
+.item-title {
+	margin-left: 0.75rem;
+}
+
+.item-card.completed .item-title {
+	text-decoration: line-through;
+	opacity: 0.6;
+}
